@@ -1,0 +1,32 @@
+{% extends 'cssintro.html' %}
+{% load static %}
+
+{% block header %}
+<div class="container mt-5">
+<div class="breadcrumb bg-info">
+
+	<h4 class="text success">{{mobiles.Model_Name}}</h4>
+</div>
+
+<div class="jumbotron" style="background:white">
+  <img class="img-fluid" src="{{ mobiles.Image.url }}" alt="Chania">
+       <br>
+       <br>
+       <h3 class="text-info">Price:</h3>
+       <h3 class= "text-dark">{{mobiles.Price}}Rs.</h3>
+       <h3 class="text-info">Brand:</h3>
+
+      <h3 class= "text-dark">{{mobiles.Brand}}</h3>
+       <h3 class="text-info">features:</h3>
+       <p class= "text-dark">{{mobiles.Descrption}}</p>
+     {% if request.user.is_superuser %}
+        <a href="{% url "mobilestore:mobileupdate" mobiles.id %}" class="btn btn-info">update</a>
+        <a href="{% url "mobilestore:mobiledelete" mobiles.id %}" class="btn btn-danger">delete</a>
+     {% endif %}
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}
+

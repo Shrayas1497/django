@@ -1,0 +1,27 @@
+{% extends 'cssintro.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block header %}
+<div class="container mt-5">
+<div class="breadcrumb bg-info">
+
+	<h4 class="text-white">New mobile</h4>
+</div>
+<div class="jumbotron">
+  <form method="POST" enctype="multipart/form-data">
+     {% csrf_token %}
+     {% bootstrap_form form %}
+  
+<button type="submit"class="btn btn-info">add mobile</button>    
+ 
+  </form>
+  
+    
+</div>
+
+
+</div>
+
+
+{% endblock %}
+

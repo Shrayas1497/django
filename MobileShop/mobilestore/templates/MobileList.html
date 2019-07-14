@@ -1,0 +1,37 @@
+{% extends 'cssintro.html' %}
+{% load static %}
+
+{% block header %}
+<div class="container mt-5">
+<div class="breadcrumb bg-info">
+
+	<h4 class="text success">Mobile stores</h4>
+</div>
+{% if mobiles %}
+
+<div class="jumbotron" style="background:white">
+    <div class="row">
+    	{%for mobile in mobiles%}
+      <div class="col">
+       <div class="card text-center mb-3" style="width: 18rem;">
+          <img class="card-img-top" src="{{ mobile.Image.url }}"alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ mobile.Model_Name }}</h5>
+              <h5 class="card-title text-info ">{{ mobile.Price }} Rs</h5>
+            
+            <p class="card-text"></p>
+            <a href="{% url 'mobilestore:MobileDetail' mobile.id %}" class="btn btn-primary">add to cart</a>
+
+          </div>
+        </div>
+      </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% else %}
+<h1>there is no mobile in the store </h1>
+{% endif %}
+</div>
+{% endblock %}
+
